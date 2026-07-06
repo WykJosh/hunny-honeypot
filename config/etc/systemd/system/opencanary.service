@@ -1,0 +1,18 @@
+[Unit]
+Description=OpenCanary Honeypot
+After=network.target
+
+[Service]
+Type=forking
+PIDFile=/opt/opencanary/bin/opencanaryd.pid
+ExecStart=/opt/opencanary/bin/opencanaryd --start --uid=nobody --gid=nogroup
+ExecStop=/opt/opencanary/bin/opencanaryd --stop
+Restart=on-failure
+RestartSec=10
+MemoryMax=120M
+CPUQuota=25%
+TasksMax=64
+
+[Install]
+WantedBy=multi-user.target
+

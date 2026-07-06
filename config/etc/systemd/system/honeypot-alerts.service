@@ -1,0 +1,19 @@
+[Unit]
+Description=Honeypot Alert Email System
+After=network.target
+
+[Service]
+Type=oneshot
+User=honeypot-alert
+Group=honeypot-alert
+WorkingDirectory=/opt/honeypot-alerts
+ExecStart=/usr/bin/python3 /opt/honeypot-alerts/honeypot_alerts.py
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/honeypot-alerts
+ReadOnlyPaths=/var/log/hunny /var/log/opencanary /var/log/modsec_audit.log
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

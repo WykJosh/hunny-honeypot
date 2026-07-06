@@ -1,0 +1,1318 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;700;800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans+Thai:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+:root {
+  --honey: #f4a72a;
+  --honey-dark: #c8780a;
+  --honey-light: #fde68a;
+  --cream: #fffbeb;
+  --bark: #7c4a1e;
+  --bark-light: #a0622a;
+  --leaf: #4a7c59;
+  --sky: #bae6fd;
+  --red: #e74c3c;
+  --shadow: rgba(124, 74, 30, 0.18);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background-color: var(--cream);
+
+  background-image:
+    url("/../images/pink.PNG"), url("/../images/yellow-open.PNG"),
+    url("/../images/yellow-right.PNG"), url("/../images/winnie-butterfly.png"),
+    radial-gradient(circle at 20% 10%, #fde68a55 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, #f4a72a22 0%, transparent 40%),
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23F4A72A' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  background-repeat:
+    no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+
+  background-size: 150px, 110px, 150px, 240px, auto, auto, auto;
+
+  background-position:
+    5% 36%,
+    90% 40%,
+    70% 85%,
+    5% 95%,
+    20% 10%,
+    80% 80%,
+    0 0;
+
+  min-height: 100vh;
+  color: var(--bark);
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── Header ── */
+header {
+  background: var(--honey-dark);
+  padding: 0.9rem 0;
+  box-shadow: 0 4px 16px var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+.logo {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1.6rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  color: var(--honey-light);
+  gap: 0.5rem;
+  white-space: nowrap;
+  transition:
+    transform 0.15s,
+    text-shadow 0.15s;
+}
+.logo span:hover {
+  font-size: 1.8rem;
+  transition:
+    transform 0.15s,
+    text-shadow 0.15s;
+  text-shadow: 2px 3px 0 var(--bark);
+}
+.logo:hover {
+  transition:
+    transform 0.15s,
+    text-shadow 0.15s;
+  text-shadow: 2px 3px 0 var(--bark);
+}
+
+nav {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  transition:
+    background 0.18s,
+    transform 0.15s;
+}
+nav a:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+nav a.admin-link {
+  background: var(--bark);
+}
+nav a.logout {
+  background: rgba(231, 76, 60, 0.7);
+}
+
+/* ── Card ── */
+.card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow:
+    0 6px 28px var(--shadow),
+    0 0 0 3px var(--honey-light);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    var(--honey),
+    var(--honey-dark),
+    var(--honey)
+  );
+}
+
+/* ── Page title ── */
+.page-title {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 2rem;
+  color: var(--honey-dark);
+  margin: 2rem 0 1.2rem;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+.page-subtitle {
+  color: var(--bark-light);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Forms ── */
+.form-group {
+  margin-bottom: 1.1rem;
+}
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: var(--bark);
+}
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 2.5px solid var(--honey-light);
+  border-radius: 12px;
+  font-family: "Outfit", sans-serif;
+  font-size: 1rem;
+  background: var(--cream);
+  color: var(--bark);
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+  outline: none;
+}
+input:focus,
+textarea:focus {
+  border-color: var(--honey);
+  box-shadow: 0 0 0 3px var(--honey-light);
+}
+
+/* ── Buttons ── */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.6rem;
+  border-radius: 999px;
+  border: none;
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+  letter-spacing: 0.3px;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--honey);
+  color: #fff;
+}
+.btn-danger {
+  background: var(--red);
+  color: #fff;
+}
+.btn-success {
+  background: var(--leaf);
+  color: #fff;
+}
+.btn-outline {
+  background: transparent;
+  border: 2.5px solid var(--honey);
+  color: var(--honey-dark);
+}
+.btn-sm {
+  padding: 0.35rem 0.9rem;
+  font-size: 0.82rem;
+}
+.btn-full {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+/* ── Alerts ── */
+.alert {
+  padding: 0.8rem 1.2rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+.alert-error {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1.5px solid #fca5a5;
+}
+.alert-success {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1.5px solid #86efac;
+}
+.alert-info {
+  background: var(--honey-light);
+  color: var(--bark);
+  border: 1.5px solid var(--honey);
+}
+
+/* ── Auth pages ── */
+.auth-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 70px);
+  padding: 2rem;
+}
+.auth-card {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow:
+    0 12px 48px var(--shadow),
+    0 0 0 3px var(--honey-light);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  overflow: hidden;
+  animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.auth-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--honey),
+    var(--honey-dark),
+    var(--honey)
+  );
+}
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+.auth-title {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 2.2rem;
+  color: var(--honey-dark);
+  text-align: center;
+  margin-bottom: 0.3rem;
+  text-shadow: 1px 2px 0 var(--honey-light);
+}
+.auth-bee {
+  font-size: 3rem;
+  text-align: center;
+  display: block;
+  margin-bottom: 0.5rem;
+  animation: wobble 3s ease-in-out infinite;
+}
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+.auth-switch {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+}
+.auth-switch a {
+  color: var(--honey-dark);
+  font-weight: 700;
+}
+
+/* ── Todo list ── */
+.todo-form {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+.todo-form input {
+  flex: 1;
+}
+
+.todo-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--cream);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--honey-light);
+  transition:
+    border-color 0.2s,
+    opacity 0.2s;
+  animation: slideIn 0.25s ease;
+}
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.todo-item.done {
+  opacity: 0.55;
+}
+.todo-item.done .todo-text {
+  text-decoration: line-through;
+  color: var(--bark-light);
+}
+.todo-item:hover {
+  border-color: var(--honey);
+}
+
+.todo-check {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border: 2.5px solid var(--honey);
+  border-radius: 7px;
+  background: #fff;
+  cursor: pointer;
+  position: relative;
+  transition: background 0.15s;
+}
+.todo-check:checked {
+  background: var(--honey);
+}
+.todo-check:checked::after {
+  content: "✓";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.8rem;
+}
+.todo-text {
+  flex: 1;
+  font-size: 0.97rem;
+  font-weight: 600;
+}
+.todo-delete {
+  margin-left: auto;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+  padding: 0.2rem;
+}
+.todo-delete:hover {
+  opacity: 1;
+  color: var(--red);
+}
+
+.todo-empty {
+  text-align: center;
+  padding: 2.5rem 1rem;
+  color: var(--bark-light);
+  font-size: 0.95rem;
+}
+.todo-empty .bee {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Profile ── */
+
+.avatar-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.avatar-img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 4px solid var(--honey);
+  object-fit: cover;
+  box-shadow: 0 4px 16px var(--shadow);
+  margin-bottom: 0.75rem;
+}
+.avatar-placeholder {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--honey-light);
+  border: 4px solid var(--honey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  margin-bottom: 0.75rem;
+}
+#avatar {
+  display: none;
+}
+.btn-over {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.4rem;
+}
+
+/* ── Admin table ── */
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 7px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+th {
+  background: linear-gradient(135deg, var(--honey), var(--honey-dark));
+  color: #fff;
+  font-family: "Luckiest Guy", cursive;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1.5px solid var(--honey-light);
+  vertical-align: middle;
+}
+td span {
+  max-width: 100%;
+}
+tr:hover td {
+  background: var(--cream);
+}
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.badge-on {
+  background: #dcfce7;
+  color: #15803d;
+}
+.badge-off {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.badge-admin {
+  background: var(--honey-light);
+  color: var(--bark);
+}
+
+/* ── Log table ── */
+.log-type {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.55rem;
+  border-radius: 6px;
+}
+.log-LOGIN_SUCCESS {
+  background: #dcfce7;
+  color: #15803d;
+}
+.log-LOGIN_FAIL {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.log-REGISTER {
+  background: var(--sky);
+  color: #0369a1;
+}
+.log-LOGOUT {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+.log-ADMIN_TOGGLE {
+  background: var(--honey-light);
+  color: var(--bark);
+}
+.log-AVATAR_UPLOAD {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+.log-PROFILE_UPDATE {
+  background: #fce7f3;
+  color: #be185d;
+}
+
+/* ── Misc ── */
+.mt1 {
+  margin-top: 0.5rem;
+}
+.mt2 {
+  margin-top: 1rem;
+}
+.text-center {
+  text-align: center;
+}
+.text-muted {
+  color: var(--bark-light);
+  font-size: 0.88rem;
+}
+.honey-divider {
+  border: none;
+  border-top: 2px dashed var(--honey-light);
+  margin: 1.5rem 0;
+}
+
+/* ── Chat ── */
+.chat-messages {
+  max-height: 420px;
+  overflow-y: auto;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1rem;
+}
+.chat-bubble {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  animation: slideIn 0.25s ease;
+}
+.chat-bubble-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--honey-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+  border: 2px solid var(--honey);
+}
+.chat-bubble-body {
+  background: var(--cream);
+  border: 2px solid var(--honey-light);
+  border-radius: 14px;
+  padding: 0.6rem 0.9rem;
+  max-width: 80%;
+}
+.chat-bubble-name {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: var(--honey-dark);
+}
+.chat-bubble-text {
+  font-size: 0.92rem;
+  margin-top: 0.15rem;
+  word-break: break-word;
+}
+.chat-bubble-time {
+  font-size: 0.72rem;
+  color: var(--bark-light);
+  margin-top: 0.25rem;
+}
+.chat-form {
+  display: flex;
+  gap: 0.6rem;
+}
+.chat-form input[type="text"] {
+  flex: 1;
+}
+
+/* ── Leaderboard ── */
+.leaderboard-list {
+  list-style: none;
+  padding: 0;
+}
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1.5px solid var(--honey-light);
+  transition: background 0.15s;
+}
+.leaderboard-item:last-child {
+  border-bottom: none;
+}
+.leaderboard-item:hover {
+  background: var(--cream);
+}
+.leaderboard-rank {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1.4rem;
+  color: var(--bark-light);
+  width: 2.2rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+.leaderboard-rank.gold {
+  color: var(--honey);
+}
+.leaderboard-rank.silver {
+  color: #94a3b8;
+}
+.leaderboard-rank.bronze {
+  color: #a0622a;
+}
+.leaderboard-name {
+  flex: 1;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.leaderboard-score {
+  font-weight: 700;
+  color: var(--honey-dark);
+  font-size: 1.05rem;
+}
+
+/* ── Honeypot log types ── */
+.log-HONEYPOT_FAKEADMIN_LOGIN {
+  background: #fef3c7;
+  color: #92400e;
+}
+.log-HONEYPOT_L2_LOGIN {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.log-ADMIN_ACCESS_DENIED {
+  background: #fce7f3;
+  color: #9d174d;
+}
+.log-fakeAdmin {
+  background: #fef3c7;
+  color: #92400e;
+}
+.log-honeyPotAdmin {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.log-trap {
+  background: #f3e8ff;
+  color: #7c3aed;
+}
+
+/* ── Honeypot decoration ── */
+.honeycomb-deco {
+  position: fixed;
+  right: -40px;
+  top: 30%;
+  font-size: 7rem;
+  opacity: 0.07;
+  pointer-events: none;
+  transform: rotate(15deg);
+}
+
+.pooh-chat-widget {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 9999;
+}
+
+.pooh-chat-bubble {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--honey);
+  border: 3px solid var(--honey-light);
+  box-shadow: 0 8px 22px rgba(124, 74, 30, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.pooh-chat-bubble:hover {
+  transform: translateY(-3px) scale(1.07);
+  box-shadow: 0 12px 30px rgba(124, 74, 30, 0.38);
+  background: var(--honey-dark);
+}
+
+.pooh-chat-bubble:hover img {
+  transform: rotate(-5deg) scale(1.08);
+}
+
+.pooh-chat-bubble img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  transition: transform 0.15s ease;
+}
+
+.pooh-chat-panel {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 78px;
+  width: 330px;
+  height: 430px;
+  background: #fff;
+  border: 3px solid var(--honey-light);
+  border-radius: 20px;
+  box-shadow: 0 12px 36px rgba(124, 74, 30, 0.28);
+  overflow: hidden;
+}
+
+.pooh-chat-panel.open {
+  display: flex;
+  flex-direction: column;
+}
+
+.pooh-chat-header {
+  background: var(--honey-dark);
+  color: white;
+  padding: 0.8rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pooh-chat-header button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.pooh-chat-messages {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  background: var(--cream);
+}
+
+.pooh-msg {
+  max-width: 80%;
+  padding: 0.55rem 0.75rem;
+  border-radius: 14px;
+  margin-bottom: 0.6rem;
+  font-size: 0.9rem;
+}
+
+.pooh-msg.bot {
+  background: var(--honey-light);
+  color: var(--bark);
+}
+
+.pooh-msg.user {
+  background: var(--honey);
+  color: white;
+  margin-left: auto;
+}
+
+.pooh-chat-form {
+  display: flex;
+  gap: 0.4rem;
+  padding: 0.7rem;
+  border-top: 2px solid var(--honey-light);
+  background: white;
+}
+
+.pooh-chat-form input {
+  flex: 1;
+  font-size: 0.9rem;
+}
+
+.pooh-chat-form button {
+  border: none;
+  border-radius: 999px;
+  background: var(--honey);
+  color: white;
+  font-weight: 700;
+  padding: 0 0.9rem;
+}
+
+.pooh-typing {
+  opacity: 0.75;
+  font-style: italic;
+}
+
+.pooh-chat-notification {
+  position: absolute;
+  bottom: 16px;
+  right: 78px;
+  background: #fff;
+  color: var(--bark);
+  padding: 0.65rem 0.9rem;
+  border-radius: 18px 18px 4px 18px;
+  box-shadow: 0 8px 20px rgba(124, 74, 30, 0.22);
+  border: 2px solid var(--honey-light);
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+  animation: poohPop 0.4s ease;
+}
+
+.pooh-chat-notification::after {
+  content: "";
+  position: absolute;
+  right: -8px;
+  bottom: 14px;
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border-right: 2px solid var(--honey-light);
+  border-bottom: 2px solid var(--honey-light);
+  transform: rotate(-45deg);
+}
+
+@keyframes poohPop {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* mad riddles */
+@keyframes tigger-bounce {
+  from {
+    transform: translateY(0) rotate(-5deg);
+  }
+  to {
+    transform: translateY(-8px) rotate(5deg);
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* mad-hatter.php ---------------------------- */
+
+@keyframes tigger-bounce-top {
+  from {
+    transform: translateX(-50%) translateY(0) rotate(-6deg);
+  }
+  to {
+    transform: translateX(-50%) translateY(-10px) rotate(6deg);
+  }
+}
+
+@keyframes mh-blobwobble {
+  0%,
+  100% {
+    border-radius: 50% 40% 60% 45% / 45% 55% 40% 60%;
+  }
+  33% {
+    border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%;
+  }
+  66% {
+    border-radius: 60% 45% 55% 40% / 40% 60% 45% 55%;
+  }
+}
+
+.mh-hero {
+  text-align: center;
+  padding: 2.5rem 1rem 0.5rem;
+}
+
+.mh-hero-title {
+  font-family: "Luckiest Guy", cursive;
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  color: var(--honey-dark);
+  text-shadow:
+    3px 4px 0 var(--honey-light),
+    5px 7px 0 rgba(124, 74, 30, 0.15);
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.mh-responses {
+  max-width: 1200px;
+  margin: 1.2rem auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.mh-response-wrap {
+  position: relative;
+  padding-top: 4.5rem;
+}
+
+.mh-tigger-top {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 6rem;
+  height: 6rem;
+  object-fit: contain;
+  animation: tigger-bounce-top 0.65s ease-in-out infinite alternate;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.mh-response-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 0.9rem 1.2rem;
+  box-shadow: 0 4px 16px var(--shadow);
+  font-size: 0.88rem;
+  border-left: 5px solid var(--honey);
+}
+
+.mh-response-card.sqli-fake {
+  border-left-color: #e74c3c;
+  background: #1a1a1a;
+  color: #00ff88;
+  font-family: "Courier New", monospace;
+}
+.mh-response-card.sqli-fake .sqli-query-echo {
+  color: #ffdd57;
+  margin-bottom: 0.5rem;
+  font-size: 0.82rem;
+  word-break: break-all;
+}
+.mh-response-card.sqli-fake table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.76rem;
+  margin-top: 0.4rem;
+}
+.mh-response-card.sqli-fake th {
+  background: #2a2a2a;
+  color: #ff9f43;
+  padding: 0.3rem 0.5rem;
+  text-align: left;
+  border-bottom: 1px solid #333;
+  white-space: nowrap;
+}
+.mh-response-card.sqli-fake td {
+  padding: 0.28rem 0.5rem;
+  border-bottom: 1px solid #2a2a2a;
+  color: #c8d6e5;
+}
+.mh-response-card.sqli-fake td.hash {
+  color: #576574;
+  font-size: 0.68rem;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mh-response-card.sqli-fake .sqli-footer {
+  margin-top: 0.4rem;
+  color: #576574;
+  font-size: 0.72rem;
+}
+
+.mh-response-card.sqli-tigger {
+  border-left-color: var(--honey);
+  text-align: center;
+  padding: 1.2rem;
+}
+.mh-response-card.sqli-tigger .tigger-msg {
+  font-family: "Luckiest Guy", cursive;
+  color: var(--honey-dark);
+  font-size: 1.1rem;
+}
+.mh-response-card.sqli-tigger .tigger-sub {
+  color: var(--bark-light);
+  font-size: 0.82rem;
+  margin-top: 0.3rem;
+}
+
+.mh-response-card.xss-blocked {
+  border-left-color: #f39c12;
+  background: #fffbf0;
+}
+.mh-response-card.xss-blocked .xss-oops {
+  font-size: 0.92rem;
+  color: var(--bark);
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+.mh-response-card.xss-blocked .xss-oops code {
+  font-family: monospace;
+  background: var(--honey-light);
+  padding: 0.1rem 0.4rem;
+  border-radius: 5px;
+  font-size: 0.88rem;
+  color: #c0392b;
+}
+.mh-response-card.xss-blocked .xss-payload {
+  font-family: monospace;
+  font-size: 0.8rem;
+  background: var(--honey-light);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  word-break: break-all;
+  margin-top: 0.3rem;
+}
+.mh-response-card.xss-blocked .xss-note {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: var(--bark-light);
+}
+
+.mh-response-card.rce-blocked {
+  border-left-color: #8e44ad;
+  background: #f9f0ff;
+}
+.mh-response-card.rce-blocked .rce-msg {
+  font-family: monospace;
+  font-size: 0.85rem;
+  color: #6c3483;
+}
+
+.mh-response-card.echo-card {
+  border-left-color: var(--honey);
+}
+.mh-response-card.echo-card .echo-val {
+  font-family: monospace;
+  font-size: 0.82rem;
+  background: var(--honey-light);
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  word-break: break-all;
+  margin-top: 0.25rem;
+}
+
+.mh-bubble-canvas {
+  position: relative;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  min-height: 1250px;
+  padding: 1rem;
+}
+
+.mh-bubble {
+  position: absolute;
+  background: #fff;
+  border: 3px solid var(--honey);
+  border-radius: 50%;
+  box-shadow:
+    0 4px 18px var(--shadow),
+    inset 0 2px 6px rgba(244, 167, 42, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+  overflow: hidden;
+}
+.mh-bubble:hover {
+  transform: scale(1.04) rotate(-1deg) !important;
+  box-shadow:
+    0 8px 28px var(--shadow),
+    0 0 0 4px var(--honey-light);
+  border-color: var(--honey-dark);
+  z-index: 10;
+}
+.mh-bubble.small {
+  width: 150px;
+  height: 140px;
+}
+.mh-bubble.med {
+  width: 200px;
+  height: 185px;
+}
+.mh-bubble.wide {
+  width: 240px;
+  height: 170px;
+}
+
+.mh-bubble label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--bark);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+  display: block;
+  cursor: pointer;
+}
+.mh-bubble input[type="text"],
+.mh-bubble input[type="password"] {
+  width: 88%;
+  border: 2px solid var(--honey-light);
+  border-radius: 999px;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.72rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  color: var(--bark);
+  background: var(--cream);
+  text-align: center;
+  outline: none;
+  transition: border-color 0.18s;
+}
+.mh-bubble input:focus {
+  border-color: var(--honey-dark);
+  background: #fff;
+}
+
+.mh-bubble:nth-child(3n) {
+  transform: rotate(3deg);
+}
+.mh-bubble:nth-child(3n + 1) {
+  transform: rotate(-2deg);
+}
+.mh-bubble:nth-child(5n) {
+  transform: rotate(5deg);
+}
+.mh-bubble:nth-child(7n) {
+  transform: rotate(-4deg);
+}
+.mh-bubble:nth-child(4n) {
+  background: linear-gradient(135deg, #fff 60%, #fde68a44);
+}
+
+.mh-bubble.drip::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 18px;
+  background: var(--honey-light);
+  border-radius: 0 0 50% 50%;
+  opacity: 0.7;
+}
+
+.mh-submit-zone {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.mh-submit-blob {
+  font-family: "Luckiest Guy", cursive;
+  font-size: 1.1rem;
+  background: linear-gradient(135deg, var(--honey) 0%, var(--honey-dark) 100%);
+  color: #fff;
+  border: none;
+  padding: 1.2rem 2rem;
+  border-radius: 50% 40% 60% 45% / 45% 55% 40% 60%;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(200, 120, 10, 0.4);
+  text-shadow: 1px 2px 0 var(--bark);
+  letter-spacing: 0.5px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  animation: mh-blobwobble 3s ease-in-out infinite;
+}
+.mh-submit-blob:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(200, 120, 10, 0.5);
+  animation-play-state: paused;
+}
+
+.mh-hp-trap {
+  opacity: 0;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  height: 0;
+}
+
+@media (max-width: 700px) {
+  .mh-bubble-canvas {
+    min-height: unset;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1rem;
+  }
+  .mh-bubble {
+    position: static !important;
+    width: 90% !important;
+    height: auto !important;
+    border-radius: 20px !important;
+    padding: 1.2rem !important;
+    transform: none !important;
+  }
+  .mh-bubble input {
+    width: 100%;
+  }
+  .mh-submit-zone {
+    position: static;
+    text-align: center;
+    margin: 1.5rem auto;
+  }
+  .mh-responses {
+    padding: 0 0.8rem;
+  }
+}

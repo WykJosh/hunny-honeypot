@@ -1,0 +1,125 @@
+###################### Filebeat Configuration #########################
+
+# ============================== Filebeat inputs ===============================
+filebeat.inputs:
+
+# Disabled default input
+- type: filestream
+  id: my-filestream-id
+  enabled: false
+  paths:
+    - /var/log/*.log
+
+# OpenCanary honeypot events
+- type: filestream
+  id: opencanary-events
+  enabled: true
+  paths:
+    - /var/log/opencanary/opencanary.log
+  prospector.scanner.fingerprint.enabled: false
+  file_identity.native: ~
+  tags: ["opencanary", "honeypot"]
+
+# ModSecurity WAF audit log
+- type: filestream
+  id: modsec-audit
+  enabled: true
+  paths:
+    - /var/log/modsec_audit.log
+  prospector.scanner.fingerprint.enabled: false
+  file_identity.native: ~
+  tags: ["modsecurity", "waf"]
+
+# PHP app activity log
+- type: filestream
+  id: hunny-app-log
+  enabled: true
+  paths:
+    - /var/log/hunny/app.log
+  prospector.scanner.fingerprint.enabled: false
+  file_identity.native: ~
+  tags: ["app", "activity"]
+
+# Pooh-bot chatbot log
+- type: filestream
+  id: hunny-chatbot-log
+  enabled: true
+  paths:
+    - /var/log/hunny/chatbot.log
+  prospector.scanner.fingerprint.enabled: false
+  file_identity.native: ~
+  tags: ["chatbot", "honeypot"]
+
+# NEW: Hunny honeypot trap log
+- type: filestream
+  id: hunny-honeypot-log
+  enabled: true
+  paths:
+    - /var/log/hunny/honeypot.log
+  prospector.scanner.fingerprint.enabled: false
+  file_identity.native: ~
+  tags: ["honeypot", "trap", "honeypot-trap"]
+
+# NEW: NGINX honeypot access log (JSON)
+- type: filestream
+  id: nginx-honeypot-access
+  enabled: true
+  paths:
+    - /var/log/nginx/honeypot_access.json
+  prospector.scanner.fingerprint.enabled: false
+  file_identity.native: ~
+  tags: ["nginx", "honeypot", "json", "honeypot-page"]
+
+# MySQL error log
+- type: filestream
+  id: mysql-error-log
+  enabled: true
+  paths:
+    - /var/log/mysql/error.log
+  prospector.scanner.fingerprint.enabled: false
+  file_identity.native: ~
+  tags: ["mysql", "database", "error"]
+
+# Endlessh SSH tarpit (journald)
+- type: journald
+  id: endlessh-journald
+  seeked_position: head
+  units:
+    - endlessh.service
+  tags: ["endlessh", "honeypot", "ssh-tarpit"]
+
+# ============================== Filebeat modules ==============================
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+  reload.enabled: false
+
+# ======================= Elasticsearch template setting =======================
+setup.ilm.enabled: false
+setup.template.name: "group-04-filebeat"
+setup.template.pattern: "group-04-filebeat-*"
+setup.template.settings:
+  index.number_of_shards: 1
+
+# =================================== Kibana ===================================
+setup.kibana:
+
+# ================================== Outputs ===================================
+output.elasticsearch:
+  hosts: ["https://elastic:9200"]
+  index: "group-04-filebeat"
+  pipeline: "group-04-honeypot-enrich"
+  protocol: "https"
+  username: "group-04"
+  password: "Mashelica9098&"
+  ssl:
+    enabled: true
+    certificate_authorities:
+      - /home/luke/elastic_http_ca.crt
+
+# ================================= Processors =================================
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~

@@ -1,0 +1,84 @@
+# Copyright (c) 2014, 2025, Oracle and/or its affiliates.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License, version 2.0,
+# as published by the Free Software Foundation.
+#
+# This program is designed to work with certain software (including
+# but not limited to OpenSSL) that is licensed under separate terms,
+# as designated in a particular file or component or in included license
+# documentation.  The authors of MySQL hereby grant you an additional
+# permission to link the program and your derivative works with the
+# separately licensed software that they have either included with
+# the program or referenced in the documentation.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License, version 2.0, for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA
+
+#
+# The MySQL  Server configuration file.
+#
+# For explanations see
+# http://dev.mysql.com/doc/mysql/en/server-system-variables.html
+
+[mysqld]
+pid-file	= /var/run/mysqld/mysqld.pid
+socket		= /var/run/mysqld/mysqld.sock
+datadir		= /var/lib/mysql
+log-error	= /var/log/mysql/error.log
+user            = mysql
+port            = 3306
+basedir         = /usr
+tmpdir          = /tmp
+
+# Security
+bind-address            = 127.0.0.1
+local_infile            = 0        
+skip-name-resolve       = 1        
+
+# Memory Optimisation
+# performance_schema      = OFF
+
+# Tiny InnoDB buffer pool
+innodb_buffer_pool_size = 64M
+innodb_redo_log_capacity = 32M
+innodb_log_buffer_size  = 4M
+innodb_flush_log_at_trx_commit = 2
+innodb_flush_method     = O_DIRECT
+
+# Connection limits (we have ~5 expected concurrent users)
+max_connections         = 30
+max_connect_errors      = 1000000     
+thread_cache_size       = 4
+table_open_cache        = 200
+key_buffer_size         = 8M
+
+# Query/log tuning
+tmp_table_size          = 16M
+max_heap_table_size     = 16M
+
+# Logging
+slow_query_log          = 1
+slow_query_log_file     = /var/log/mysql/slow.log
+long_query_time         = 2
+
+# Performance Schema — sized for low-traffic honeypot
+# Default values assume hundreds of connections; we shrink for ~5 users
+performance_schema_max_table_instances = 200
+performance_schema_max_table_handles   = 100
+performance_schema_max_thread_instances = 50
+performance_schema_events_waits_history_size = 5
+performance_schema_events_waits_history_long_size = 100
+performance_schema_events_stages_history_size = 5
+performance_schema_events_stages_history_long_size = 100
+performance_schema_events_statements_history_size = 5
+performance_schema_events_statements_history_long_size = 100
+
+# Relax GROUP BY for leaderboard query compatibility
+sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION

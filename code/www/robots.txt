@@ -1,0 +1,19 @@
+# robots.txt — Hunny To-Do
+User-agent: *
+Allow: /
+
+# Administrative areas
+Disallow: /admin/
+Disallow: /hundred-acre-admin/
+Disallow: /api/internal/
+
+# Old backups (scheduled for cleanup)
+Disallow: /db_backup/
+Disallow: /backups/
+
+# Staging
+Disallow: /staging/
+Disallow: /debug/
+
+# Private uploads
+Disallow: /uploads/private/

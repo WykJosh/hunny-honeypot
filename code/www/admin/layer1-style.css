@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Nunito:wght@400;600;700;800&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Playpen+Sans+Thai:wght@100..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+:root {
+  --honey: #f4a72a;
+  --honey-dark: #c8780a;
+  --honey-light: #fde68a;
+  --cream: #fffbeb;
+  --bark: #7c4a1e;
+  --bark-light: #a0622a;
+  --leaf: #4a7c59;
+  --sky: #bae6fd;
+  --red: #e74c3c;
+  --shadow: rgba(124, 74, 30, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Outfit", sans-serif;
+  background: --var(--honey-light);
+  color: --var(--honey-dark);
+}
+.wrap {
+  max-width: 420px;
+  margin: 80px auto;
+  padding: 0 1rem;
+}
+
+.panel {
+  background: #fff;
+  border: 2px solid var(--honey);
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px var(--shadow);
+}
+
+.panel h2 {
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+  color: var(--honey-dark);
+  font-family: "Luckiest Guy", cursive;
+  letter-spacing: 0.5px;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--honey-dark);
+}
+
+.field input {
+  width: 100%;
+  padding: 0.55rem 0.8rem;
+  border: 1.5px solid var(--honey);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: "Nunito", sans-serif;
+  background: var(--cream);
+  color: var(--bark);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field input:focus {
+  border-color: var(--honey-dark);
+}
+
+.btn {
+  background: var(--honey);
+  color: var(--bark);
+  border: none;
+  padding: 0.65rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: var(--honey-dark);
+  color: #fff;
+}
+
+.error {
+  background: #fef2f2;
+  color: var(--red);
+  border: 1px solid #fca5a5;
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.dash {
+  padding: 2rem;
+}
+
+.dash h2 {
+  margin-bottom: 0.5rem;
+  color: var(--honey-dark);
+  font-family: "Luckiest Guy", cursive;
+}
+
+.dash p {
+  color: var(--bark-light);
+  margin-bottom: 1rem;
+}
+
+.dash table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.dash th {
+  background: var(--honey);
+  color: var(--bark);
+  padding: 0.55rem 0.7rem;
+  text-align: left;
+  font-weight: 700;
+}
+
+.dash td {
+  padding: 0.55rem 0.7rem;
+  border-bottom: 1px solid var(--honey-light);
+  color: var(--bark);
+}
+
+.info {
+  background: var(--honey-light);
+  color: var(--bark);
+  padding: 0.55rem 0.8rem;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  border: 1px solid var(--honey);
+}
