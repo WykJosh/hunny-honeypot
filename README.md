@@ -24,7 +24,7 @@
 
 **Hunny Do** is a Winnie the Pooh–themed PHP web application that does two things at once: it works as a real, functioning to-do list and fun app for users, and it works as a multi-layered honeypot designed to detect, track, and study attacker behaviour.
 
-The app is deployed on `group04.hp.edu.technet.howest.be` - a Debian VM with 1 GB RAM.
+The app was deployed on the domain given by Howest University.
 
 ### What the application does
 
@@ -261,7 +261,7 @@ For attackers, it's an additional intelligence surface.
 ```
 Browser widget (layout.php)
     |
-POST /api/pooh-bot.php  [CSRF token validated]
+POST  /api/pooh-bot.php  [CSRF token validated]
     |
 Rate limit check (10 messages/minute per session)
 Message length check (500 char max)
