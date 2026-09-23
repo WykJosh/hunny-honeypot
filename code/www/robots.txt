@@ -1,4 +1,4 @@
-# robots.txt — Hunny To-Do
+# robots.txt - Hunny To-Do
 User-agent: *
 Allow: /
 
@@ -7,7 +7,7 @@ Disallow: /admin/
 Disallow: /hundred-acre-admin/
 Disallow: /api/internal/
 
-# Old backups (scheduled for cleanup)
+# Old backups
 Disallow: /db_backup/
 Disallow: /backups/
 
